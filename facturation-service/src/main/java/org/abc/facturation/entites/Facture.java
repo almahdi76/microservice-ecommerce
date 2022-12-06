@@ -31,16 +31,7 @@ public class Facture {
 	private List<ProductItm> productItem;
 	@Transient
 	private Customer customer;
-	public Facture(int quantity, double price, Date dateFacturation, Long customerId, List<ProductItm> productItem,
-			Customer customer) {
-		
-		this.quantity = quantity;
-		this.price = price;
-		this.dateFacturation = dateFacturation;
-		CustomerId = customerId;
-		this.productItem = productItem;
-		this.customer = customer;
-	}
+	
 	public Facture() {
 		
 	}

@@ -1,0 +1,19 @@
+server:
+  port: 9983
+spring:
+  cloud:
+    discovery:
+      enabled: true
+      
+  application:
+    name: facturation-service
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+  
