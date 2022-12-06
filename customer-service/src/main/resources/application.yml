@@ -4,4 +4,16 @@ spring:
   cloud:
     discovery:
       enabled: true
+      
+  application:
+    name: customer-service
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
   
