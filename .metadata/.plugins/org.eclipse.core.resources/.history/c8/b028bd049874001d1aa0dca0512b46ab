@@ -1,0 +1,36 @@
+package org.abc.gateway;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.gateway.route.RouteLocator;
+import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.Bean;
+
+@SpringBootApplication
+
+public class GatewayServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(GatewayServiceApplication.class, args);
+	}
+	
+//	@Bean
+//	RouteLocator routes(RouteLocatorBuilder builder) {
+//		return builder.routes()
+//				.route(r ->r.path("/customers/**").uri("http://localhost:8881"))
+//				.route(r ->r.path("/products/**").uri("http://localhost:8883"))
+//				.build();
+//		
+//	}
+	
+	@Bean
+	RouteLocator routes(RouteLocatorBuilder builder) {
+		return builder.routes()
+				.route(r ->r.path("/customers/**").uri("customer-service"))
+				.route(r ->r.path("/products/**").uri("stock-service"))
+				.build();
+		
+	}
+
+}

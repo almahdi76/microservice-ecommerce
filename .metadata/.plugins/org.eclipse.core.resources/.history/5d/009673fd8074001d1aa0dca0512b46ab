@@ -1,0 +1,34 @@
+package org.abc.stock;
+
+import java.util.List;
+
+import org.abc.stock.entites.Poduct;
+import org.abc.stock.repo.ProductRepo;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class StockServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(StockServiceApplication.class, args);
+	}
+	
+	CommandLineRunner run(ProductRepo productRepo) {
+		return args ->{
+			productRepo.saveAll(
+					List.of(
+							new Poduct("LG",15,288.8),
+							new Poduct("samsung ",15,1980.87),
+							new Poduct("xiaomi",7,719),
+							new Poduct("Nokia",3,405.0)
+							)
+					);
+		}
+	}
+	
+
+
+}

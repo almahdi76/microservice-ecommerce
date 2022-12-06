@@ -1,0 +1,5 @@
+server.port=9993
+eureka.client.fetch-registry=false
+eureka.client.register-with-eureka=false
+
+

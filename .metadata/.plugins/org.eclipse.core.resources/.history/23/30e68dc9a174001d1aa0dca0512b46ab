@@ -1,0 +1,5 @@
+package org.abc.customer.entities;
+
+public class Customer {
+
+}

@@ -1,0 +1,2 @@
+server.port=8882
+spring. cloud.discovery.enabled=false
