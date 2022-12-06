@@ -20,26 +20,26 @@ public class GatewayServiceApplication {
 	
 
 	
-	@Bean
-	RouteLocator routes(RouteLocatorBuilder builder) {
-		return builder.routes()
-				.route(r ->r.path("/customers/**").uri("http://localhost:9991/customers/"))
-				.route(r ->r.path("/products/**").uri("http://localhost:9992/products/"))
-				.build();
-		
-	}
-//    @Bean
-//    public RouteLocator routes(RouteLocatorBuilder builder){
-//        return builder.routes()
-//                .route(r->r.path("/customers/**").uri("lb://CUSTOMER-SERVICE"))
-//                .route(r->r.path("/products/**").uri("lb://STOCK-SERVICE")) 
-//                .build();
-//    }
-//    @Bean
-//    public DiscoveryClientRouteDefinitionLocator dynamicRoutes(ReactiveDiscoveryClient rdc,
-//                                                               DiscoveryLocatorProperties dlp){
-//        return new DiscoveryClientRouteDefinitionLocator(rdc,dlp);
-//    }
+//	@Bean
+//	RouteLocator routes(RouteLocatorBuilder builder) {
+//		return builder.routes()
+//				.route(r ->r.path("/customers/**").uri("http://localhost:9981/customers/"))
+//				.route(r ->r.path("/products/**").uri("http://localhost:9982/products/"))
+//				.build();
+//		
+//	}
+    //@Bean
+    public RouteLocator routes(RouteLocatorBuilder builder){
+        return builder.routes()
+                .route(r->r.path("/customers/**").uri("lb://CUSTOMER-SERVICE"))
+                .route(r->r.path("/products/**").uri("lb://STOCK-SERVICE")) 
+                .build();
+    }
+    @Bean
+    public DiscoveryClientRouteDefinitionLocator dynamicRoutes(ReactiveDiscoveryClient rdc,
+                                                               DiscoveryLocatorProperties dlp){
+        return new DiscoveryClientRouteDefinitionLocator(rdc,dlp);
+    }
 	
 	
 }
